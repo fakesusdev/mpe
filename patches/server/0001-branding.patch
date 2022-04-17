@@ -117,10 +117,10 @@ index 88789cd4dc431b3df3cb995b4f319563eeda8a0c..05310b44cf75c077c702684b23d01c45
      private final String bukkitVersion = Versioning.getBukkitVersion();
      private final Logger logger = Logger.getLogger("Minecraft");
 diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-index fc9877036bc3619b5a5754dd149b0097f7d067af..73260bde949e14347c9c0b70c9d47b3d75f69283 100644
+index fc9877036bc3619b5a5754dd149b0097f7d067af..5be31229dd7b9a4e6e98301d3e10674aaf4d166e 100644
 --- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
 +++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
-@@ -1,14 +1,14 @@
+@@ -1,15 +1,15 @@
  package org.bukkit.craftbukkit.util;
  
 -import java.io.IOException;
@@ -133,11 +133,12 @@ index fc9877036bc3619b5a5754dd149b0097f7d067af..73260bde949e14347c9c0b70c9d47b3d
  import org.bukkit.Bukkit;
  
  public final class Versioning {
--    public static String getBukkitVersion() {
-+    /*public static String getBukkitVersion() {
-         String result = "Unknown-Version";
+     public static String getBukkitVersion() {
+-        String result = "Unknown-Version";
++        /*String result = "Unknown-Version";
  
          InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/me.minhh2792.pearl/pearl-api/pom.properties"); // Pufferfish // Purpur // Pearl
+         Properties properties = new Properties();
 @@ -22,8 +22,8 @@ public final class Versioning {
              } catch (IOException ex) {
                  Logger.getLogger(Versioning.class.getName()).log(Level.SEVERE, "Could not get Bukkit version!", ex);
