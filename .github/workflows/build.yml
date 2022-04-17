@@ -43,4 +43,4 @@ jobs:
           automatic_release_tag: "$GITHUB_RUN_NUMBER"
           prerelease: false
           title: "mpe ${{ steps.relInfo.outputs.mcversion }} ${{ steps.relInfo.outputs.date }} ${{ steps.relInfo.outputs.shortHash }}"
-          files: ./target/mpe-${{ steps.version.outputs.mcversion }}.jar
+          files: ./build/libs/mpe-paperclip-${{ steps.version.outputs.version }}-reobf.jar
