@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 17 Apr 2022 20:33:37 +0800
+Subject: [PATCH] update dependencies
+
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 7b97af844d18247215b689db6f82969fec96b1a2..56ab77d0945d86359359212a28eb3b62dfdf8731 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -24,15 +24,15 @@ dependencies {
+           all its classes to check if they are plugins.
+           Scanning takes about 1-2 seconds so adding this speeds up the server start.
+      */
+-    implementation("org.apache.logging.log4j:log4j-core:2.17.1") // Paper - implementation
+-    annotationProcessor("org.apache.logging.log4j:log4j-core:2.17.1") // Paper - Needed to generate meta for our Log4j plugins
++    implementation("org.apache.logging.log4j:log4j-core:2.17.2") // Paper - implementation
++    annotationProcessor("org.apache.logging.log4j:log4j-core:2.17.2") // Paper - Needed to generate meta for our Log4j plugins
+     // Paper end
+-    implementation("org.apache.logging.log4j:log4j-iostreams:2.17.1") // Paper
+-    implementation("org.apache.logging.log4j:log4j-slf4j18-impl:2.17.1") // Paper
+-    implementation("org.ow2.asm:asm:9.2")
+-    implementation("org.ow2.asm:asm-commons:9.2") // Paper - ASM event executor generation
++    implementation("org.apache.logging.log4j:log4j-iostreams:2.17.2") // Paper
++    implementation("org.apache.logging.log4j:log4j-slf4j18-impl:2.17.2") // Paper
++    implementation("org.ow2.asm:asm:9.3")
++    implementation("org.ow2.asm:asm-commons:9.3") // Paper - ASM event executor generation
+     runtimeOnly("org.xerial:sqlite-jdbc:3.36.0.3")
+-    runtimeOnly("mysql:mysql-connector-java:8.0.27")
++    runtimeOnly("mysql:mysql-connector-java:8.0.28")
+     runtimeOnly("com.lmax:disruptor:3.4.4") // Paper
+ 
+     runtimeOnly("org.apache.maven:maven-resolver-provider:3.8.4")
+@@ -41,7 +41,7 @@ dependencies {
+ 
+     implementation("net.fabricmc:mapping-io:0.3.0") // Paper - needed to read mappings for stacktrace deobfuscation
+     // Paper start - Use Velocity cipher
+-    implementation("com.velocitypowered:velocity-native:1.1.0-SNAPSHOT") {
++    implementation("com.velocitypowered:velocity-native:1.1.10-SNAPSHOT") {
+         isTransitive = false
+     }
+     // Paper end
+@@ -56,7 +56,7 @@ dependencies {
+     // Pufferfish end
+     implementation("com.github.technove:Flare:34637f3f87") // Pufferfish - flare
+ 
+-    testImplementation("io.github.classgraph:classgraph:4.8.47") // Paper - mob goal test
++    testImplementation("io.github.classgraph:classgraph:4.8.143") // Paper - mob goal test
+     testImplementation("junit:junit:4.13.2")
+     testImplementation("org.hamcrest:hamcrest-library:1.3")
+ }

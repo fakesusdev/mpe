@@ -1,0 +1,16 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 10 Apr 2022 20:28:34 +0700
+Subject: [PATCH] disable icanhasbukkit by default
+
+
+diff --git a/src/main/resources/configurations/commands.yml b/src/main/resources/configurations/commands.yml
+index 18f54571200e2eca09a39b88f170fe7b99d8618f..db52c78790985d9af70d00ddab629a3618983b0d 100644
+--- a/src/main/resources/configurations/commands.yml
++++ b/src/main/resources/configurations/commands.yml
+@@ -13,4 +13,4 @@ command-block-overrides: []
+ ignore-vanilla-permissions: false
+ aliases:
+     icanhasbukkit:
+-      - "version $1-"
++      - []

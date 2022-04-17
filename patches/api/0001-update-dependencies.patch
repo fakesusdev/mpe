@@ -1,0 +1,71 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sun, 17 Apr 2022 20:28:54 +0800
+Subject: [PATCH] update dependencies
+
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 9fb982d7f956a2629a2973c1f53b1df8357b4e34..2255643062bc34748a05c6a8771e6e8683cb273c 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -24,27 +24,27 @@ configurations.api {
+ dependencies {
+     // api dependencies are listed transitively to API consumers
+     api("commons-lang:commons-lang:2.6")
+-    api("com.google.guava:guava:31.0.1-jre")
+-    api("com.google.code.gson:gson:2.8.9")
++    api("com.google.guava:guava:31.1-jre")
++    api("com.google.code.gson:gson:2.9.0")
+     api("net.md-5:bungeecord-chat:1.16-R0.4-deprecated+build.6") // Paper
+     api("org.yaml:snakeyaml:1.30")
+     // Paper start
+     api("com.googlecode.json-simple:json-simple:1.1.1") {
+         isTransitive = false // includes junit
+     }
+-    api("it.unimi.dsi:fastutil:8.5.6")
++    api("it.unimi.dsi:fastutil:8.5.8")
+     apiAndDocs(platform("net.kyori:adventure-bom:$adventureVersion"))
+     apiAndDocs("net.kyori:adventure-api")
+     apiAndDocs("net.kyori:adventure-text-minimessage")
+     apiAndDocs("net.kyori:adventure-text-serializer-gson")
+     apiAndDocs("net.kyori:adventure-text-serializer-legacy")
+     apiAndDocs("net.kyori:adventure-text-serializer-plain")
+-    api("org.apache.logging.log4j:log4j-api:2.17.1")
++    api("org.apache.logging.log4j:log4j-api:2.17.2")
+     api("org.slf4j:slf4j-api:1.8.0-beta4")
+-    api("io.sentry:sentry:5.4.0") // Pufferfish
++    api("io.sentry:sentry:5.7.3") // Pufferfish
+ 
+-    implementation("org.ow2.asm:asm:9.2")
+-    implementation("org.ow2.asm:asm-commons:9.2")
++    implementation("org.ow2.asm:asm:9.3")
++    implementation("org.ow2.asm:asm-commons:9.3")
+     // Paper end
+ 
+     compileOnly("org.apache.maven:maven-resolver-provider:3.8.4")
+@@ -57,14 +57,14 @@ dependencies {
+     testCompileOnly(annotations)
+ 
+     // Paper start - add checker
+-    val checkerQual = "org.checkerframework:checker-qual:3.21.0"
++    val checkerQual = "org.checkerframework:checker-qual:3.21.4"
+     compileOnlyApi(checkerQual)
+     testCompileOnly(checkerQual)
+     // Paper end
+ 
+     testImplementation("junit:junit:4.13.2")
+     testImplementation("org.hamcrest:hamcrest-library:1.3")
+-    testImplementation("org.ow2.asm:asm-tree:9.2")
++    testImplementation("org.ow2.asm:asm-tree:9.3")
+ }
+ 
+ configure<PublishingExtension> {
+@@ -108,7 +108,7 @@ tasks.withType<Javadoc> {
+     options.overview = "src/main/javadoc/overview.html"
+     options.isDocFilesSubDirs = true
+     options.links(
+-        "https://guava.dev/releases/31.0.1-jre/api/docs/",
++        "https://guava.dev/releases/31.1-jre/api/docs/",
+         "https://javadoc.io/doc/org.yaml/snakeyaml/1.30/",
+         "https://javadoc.io/doc/org.jetbrains/annotations/23.0.0/", // Paper - we don't want Java 5 annotations
+         // Paper start

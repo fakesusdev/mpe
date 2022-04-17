@@ -30,3 +30,17 @@ jobs:
         run: ./gradlew applyPatches --stacktrace
       - name: Build
         run: ./gradlew build --stacktrace
+      - name: release info
+        id: relInfo
+        run: |
+          echo "::set-output name=date::$(date +'%H:%M %m/%d/%Y')"
+          echo "::set-output name=shortHash::$(git rev-parse --short HEAD)"
+          echo "::set-output name=mcversion::$(grep mcVersion gradle.properties | cut -d "=" -f2 | sed -e 's/^[[:space:]]*//')"
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        if: github.ref_name == 'ver/1.18.2'
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "$GITHUB_RUN_NUMBER"
+          prerelease: false
+          title: "mpe ${{ steps.relInfo.outputs.mcversion }} ${{ steps.relInfo.outputs.date }} ${{ steps.relInfo.outputs.shortHash }}"
+          files: ./target/mpe-${{ steps.version.outputs.mcversion }}.jar
