@@ -84,10 +84,10 @@ index 877c09084490dad9f10c4f8ac8cf051e5b17d436..e29b364fabbaa777e30d920443ee63fb
          boolean flag2 = minecraftserver.forceSynchronousWrites();
          DataFixer datafixer = minecraftserver.getFixerUpper();
 diff --git a/src/main/java/net/minecraft/world/entity/monster/Slime.java b/src/main/java/net/minecraft/world/entity/monster/Slime.java
-index 47e9d93f75d3cfbda4e5a3a3a2ed1e204331a961..1eafdce872ac771da45e42f7b2ddccedbdd5276b 100644
+index 29b56001fdb44bc5267d2d2ae8e9bafc61b3fe79..2b189b6de91069445b02c486dde289175e9b7bf5 100644
 --- a/src/main/java/net/minecraft/world/entity/monster/Slime.java
 +++ b/src/main/java/net/minecraft/world/entity/monster/Slime.java
-@@ -417,7 +417,7 @@ public class Slime extends Mob implements Enemy {
+@@ -421,7 +421,7 @@ public class Slime extends Mob implements Enemy {
              }
  
              ChunkPos chunkcoordintpair = new ChunkPos(pos);
