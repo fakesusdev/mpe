@@ -5,7 +5,7 @@ Subject: [PATCH] update dependencies
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 7b97af844d18247215b689db6f82969fec96b1a2..56ab77d0945d86359359212a28eb3b62dfdf8731 100644
+index 742058566b7d2318b25cbf74f2ca153333b875c4..3599aee86435a69ee9eb0edd936b0eba4aaaaa91 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -24,15 +24,15 @@ dependencies {
@@ -40,7 +40,7 @@ index 7b97af844d18247215b689db6f82969fec96b1a2..56ab77d0945d86359359212a28eb3b62
          isTransitive = false
      }
      // Paper end
-@@ -56,7 +56,7 @@ dependencies {
+@@ -54,7 +54,7 @@ dependencies {
      // Pufferfish end
      implementation("com.github.technove:Flare:34637f3f87") // Pufferfish - flare
  

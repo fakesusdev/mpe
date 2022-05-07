@@ -10,10 +10,10 @@ Original code by YatopiaMC, licensed under MIT
 You can find the original code on https://github.com/YatopiaMC/Yatopia
 
 diff --git a/src/main/java/net/minecraft/world/entity/player/Player.java b/src/main/java/net/minecraft/world/entity/player/Player.java
-index 22eb757844a3704b00fa6ed5e6e1c7941c2cf652..60146adad014a3b96fe2d770f617b5f6751be58c 100644
+index b63c0ca48939bc7a17265f5c1509d758ab5748a9..da04e675921b96ed06ddece2e47bec7759f53e27 100644
 --- a/src/main/java/net/minecraft/world/entity/player/Player.java
 +++ b/src/main/java/net/minecraft/world/entity/player/Player.java
-@@ -306,19 +306,21 @@ public abstract class Player extends LivingEntity {
+@@ -276,19 +276,21 @@ public abstract class Player extends LivingEntity {
          this.moveCloak();
          if (!this.level.isClientSide) {
              this.foodData.tick(this);

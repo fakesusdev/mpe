@@ -1,0 +1,148 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: KurumiFake <kurumiisshidowife@gmail.com>
+Date: Sat, 7 May 2022 15:33:16 +0700
+Subject: [PATCH] rebrand
+
+hey why tabs bruh hfjsjdjsuxbhsg-
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 4a973de1682460d0086e2bda3329eed28572b222..742058566b7d2318b25cbf74f2ca153333b875c4 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -9,7 +9,7 @@ plugins {
+ }
+ 
+ dependencies {
+-    implementation(project(":pearl-api")) // Pearl // Pufferfish // Paper
++    implementation(project(":mpe-api")) // mpe // Pearl // Pufferfish // Paper
+     // Pufferfish start
+     implementation("io.papermc.paper:paper-mojangapi:1.18.2-R0.1-SNAPSHOT") {
+         exclude("io.papermc.paper", "paper-api")
+@@ -78,7 +78,7 @@ tasks.jar {
+         attributes(
+             "Main-Class" to "org.bukkit.craftbukkit.Main",
+             "Implementation-Title" to "CraftBukkit",
+-            "Implementation-Version" to "git-Pearl-$implementationVersion", // Pearl
++            "Implementation-Version" to "git-mpe-$implementationVersion", // mpe
+             "Implementation-Vendor" to date, // Paper
+             "Specification-Title" to "Bukkit",
+             "Specification-Version" to project.version,
+diff --git a/src/main/java/com/destroystokyo/paper/Metrics.java b/src/main/java/com/destroystokyo/paper/Metrics.java
+index 3666c57d11209baf61a0f03c66b71f30311c0c08..8c906aaf78e5b3b25ec550c3e0e4a3c23a756a52 100644
+--- a/src/main/java/com/destroystokyo/paper/Metrics.java
++++ b/src/main/java/com/destroystokyo/paper/Metrics.java
+@@ -593,7 +593,7 @@ public class Metrics {
+             boolean logFailedRequests = config.getBoolean("logFailedRequests", false);
+             // Only start Metrics, if it's enabled in the config
+             if (config.getBoolean("enabled", true)) {
+-                Metrics metrics = new Metrics("Pearl", serverUUID, logFailedRequests, Bukkit.getLogger()); // Pearl
++                Metrics metrics = new Metrics("mpe", serverUUID, logFailedRequests, Bukkit.getLogger()); // mpe
+ 
+                 metrics.addCustomChart(new Metrics.SimplePie("minecraft_version", () -> {
+                     String minecraftVersion = Bukkit.getVersion();
+@@ -603,7 +603,7 @@ public class Metrics {
+ 
+                 metrics.addCustomChart(new Metrics.SingleLineChart("players", () -> Bukkit.getOnlinePlayers().size()));
+                 metrics.addCustomChart(new Metrics.SimplePie("online_mode", () -> Bukkit.getOnlineMode() ? "online" : "offline"));
+-                metrics.addCustomChart(new Metrics.SimplePie("pearl_version", () -> (Metrics.class.getPackage().getImplementationVersion() != null) ? Metrics.class.getPackage().getImplementationVersion() : "unknown"));
++                metrics.addCustomChart(new Metrics.SimplePie("mpe_version", () -> (Metrics.class.getPackage().getImplementationVersion() != null) ? Metrics.class.getPackage().getImplementationVersion() : "unknown"));
+ 
+                 metrics.addCustomChart(new Metrics.DrilldownPie("java_version", () -> {
+                     Map<String, Map<String, Integer>> map = new HashMap<>();
+diff --git a/src/main/java/com/destroystokyo/paper/console/PaperConsole.java b/src/main/java/com/destroystokyo/paper/console/PaperConsole.java
+index b2b1835a5646310fdc0aa73da0c4741e2775236a..25489a4f70780d7042e67c46e1e765cd82f70e1d 100644
+--- a/src/main/java/com/destroystokyo/paper/console/PaperConsole.java
++++ b/src/main/java/com/destroystokyo/paper/console/PaperConsole.java
+@@ -17,7 +17,7 @@ public final class PaperConsole extends SimpleTerminalConsole {
+     @Override
+     protected LineReader buildReader(LineReaderBuilder builder) {
+         builder
+-                .appName("Pearl")
++                .appName("mpe") // mpe
+                 .variable(LineReader.HISTORY_FILE, java.nio.file.Paths.get(".console_history"))
+                 .completer(new ConsoleCommandCompleter(this.server))
+                 .option(LineReader.Option.COMPLETE_IN_WORD, true);
+diff --git a/src/main/java/me/minhh2792/pearl/PearlConfig.java b/src/main/java/me/minhh2792/pearl/PearlConfig.java
+index 13d5fe7411a709b33dde8ff9a8f6e7006f92708a..18a30a4eb7f8f94b38ccf9af29a747caf4bbfd11 100644
+--- a/src/main/java/me/minhh2792/pearl/PearlConfig.java
++++ b/src/main/java/me/minhh2792/pearl/PearlConfig.java
+@@ -167,7 +167,7 @@ public class PearlConfig {
+ 		useAlternativeKeepalive = getBoolean("use-alternative-keepalive", useAlternativeKeepalive);
+ 	}
+ 
+-	public static String serverModName = "Pearl";
++	public static String serverModName = "mpe"; // mpe
+ 	private static void serverModName() {
+ 		serverModName = getString("misc.server-mod-name", serverModName);
+ 	}
+diff --git a/src/main/java/me/minhh2792/pearl/PearlVersionFetcher.java b/src/main/java/me/minhh2792/pearl/PearlVersionFetcher.java
+index da88a794ffabc78209aad1b0d91cf5ba025f8d14..50ba264101e47cc472aff5e2f6fc100f3db383bd 100644
+--- a/src/main/java/me/minhh2792/pearl/PearlVersionFetcher.java
++++ b/src/main/java/me/minhh2792/pearl/PearlVersionFetcher.java
+@@ -19,7 +19,7 @@ import java.net.URL;
+ public class PearlVersionFetcher implements VersionFetcher {
+     private static final java.util.regex.Pattern VER_PATTERN = java.util.regex.Pattern.compile("^([0-9\\.]*)\\-.*R"); // R is an anchor, will always give '-R' at end
+     private static final String GITHUB_BRANCH_NAME = "main";
+-    private static final String DOWNLOAD_PAGE = "https://github.com/Pearl-Project/Pearl/releases";
++    private static final String DOWNLOAD_PAGE = "https://github.com/fakesusdev/mpe/releases";
+     private static @Nullable String mcVer;
+ 
+     @Override
+@@ -30,8 +30,8 @@ public class PearlVersionFetcher implements VersionFetcher {
+     @Nonnull
+     @Override
+     public Component getVersionMessage(@Nonnull String serverVersion) {
+-        String[] parts = serverVersion.substring("git-Pearl-".length()).split("[-\\s]");
+-        final Component updateMessage = getUpdateStatusMessage("Pearl-Project/Pearl", GITHUB_BRANCH_NAME, parts[0]);
++        String[] parts = serverVersion.substring("git-mpe-".length()).split("[-\\s]");
++        final Component updateMessage = getUpdateStatusMessage("fakesusdev/mpe", GITHUB_BRANCH_NAME, parts[0]);
+         final Component history = getHistory();
+ 
+         return history != null ? TextComponent.ofChildren(updateMessage, Component.newline(), history) : updateMessage;
+diff --git a/src/main/java/org/bukkit/craftbukkit/CraftServer.java b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
+index 639e631c3f89c15692cde27e77921f38f2c7359a..333447160940d971b46db1e06cb8ebbe7cfffe86 100644
+--- a/src/main/java/org/bukkit/craftbukkit/CraftServer.java
++++ b/src/main/java/org/bukkit/craftbukkit/CraftServer.java
+@@ -249,7 +249,7 @@ import javax.annotation.Nullable; // Paper
+ import javax.annotation.Nonnull; // Paper
+ 
+ public final class CraftServer implements Server {
+-    private final String serverName = "Pearl"; // Paper // Pufferfish // Pearl
++    private final String serverName = "mpe"; // Paper // Pufferfish // Pearl // mpe
+     private final String serverVersion;
+     private final String bukkitVersion = Versioning.getBukkitVersion();
+     private final Logger logger = Logger.getLogger("Minecraft");
+diff --git a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+index 911b9291927cf492cef2b0dc6bf37b5ea3a10b20..00dd8c3a1f0ec2cfec069f7c509ab594785a9ed4 100644
+--- a/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
++++ b/src/main/java/org/bukkit/craftbukkit/util/Versioning.java
+@@ -1,15 +1,15 @@
+ package org.bukkit.craftbukkit.util;
+ 
+-import java.io.IOException;
++/*import java.io.IOException;
+ import java.io.InputStream;
+ import java.util.Properties;
+ import java.util.logging.Level;
+-import java.util.logging.Logger;
++import java.util.logging.Logger;*/
+ import org.bukkit.Bukkit;
+ 
+ public final class Versioning {
+     public static String getBukkitVersion() {
+-        String result = "Unknown-Version";
++        /*String result = "Unknown-Version";
+ 
+         InputStream stream = Bukkit.class.getClassLoader().getResourceAsStream("META-INF/maven/me.minhh2792.pearl/pearl-api/pom.properties"); // Pufferfish // Pearl
+         Properties properties = new Properties();
+@@ -22,8 +22,8 @@ public final class Versioning {
+             } catch (IOException ex) {
+                 Logger.getLogger(Versioning.class.getName()).log(Level.SEVERE, "Could not get Bukkit version!", ex);
+             }
+-        }
++        }*/
+ 
+-        return result;
++        return "1.18.2-R0.1-SNAPSHOT"; // mpe - hardcode bukkitversion
+     }
+ }

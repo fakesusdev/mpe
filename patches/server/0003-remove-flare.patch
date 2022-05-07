@@ -5,10 +5,10 @@ Subject: [PATCH] remove flare
 
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 56ab77d0945d86359359212a28eb3b62dfdf8731..050b504186f63759ee631b90345aeb0722e5c3f2 100644
+index 3599aee86435a69ee9eb0edd936b0eba4aaaaa91..9c85c6cdeeb0647c064b407b0cadf475f7211357 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -54,7 +54,6 @@ dependencies {
+@@ -52,7 +52,6 @@ dependencies {
          exclude(group="org.yaml", module="snakeyaml")
      }
      // Pufferfish end
@@ -17,7 +17,7 @@ index 56ab77d0945d86359359212a28eb3b62dfdf8731..050b504186f63759ee631b90345aeb07
      testImplementation("io.github.classgraph:classgraph:4.8.143") // Paper - mob goal test
      testImplementation("junit:junit:4.13.2")
 diff --git a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
-index bd01a39767f65d959060b890afe7f9d8d426d70a..e59934e13fb902d89d11e54ab6164d7f4692a4f8 100644
+index a820bfe38cb5765ee74c4fd7084d949477f83692..09400b0fec0986fefee40c47fce2b91e516a4900 100644
 --- a/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
 +++ b/src/main/java/gg/pufferfish/pufferfish/PufferfishConfig.java
 @@ -12,7 +12,6 @@ import net.minecraft.world.entity.EntityType;
