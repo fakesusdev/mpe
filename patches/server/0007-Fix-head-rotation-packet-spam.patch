@@ -5,7 +5,7 @@ Subject: [PATCH] Fix head rotation packet spam
 
 
 diff --git a/src/main/java/net/minecraft/server/level/ServerEntity.java b/src/main/java/net/minecraft/server/level/ServerEntity.java
-index b1c424ade7bbc27cbb2bfb6c78d88550ff888981..429878b43c1e0d8a4b1107065649a09d131172cf 100644
+index 4c13451289018b195eb1411658661d8aa9137c0d..1149538c4de144131c58e6d0ec41ea0db53826a8 100644
 --- a/src/main/java/net/minecraft/server/level/ServerEntity.java
 +++ b/src/main/java/net/minecraft/server/level/ServerEntity.java
 @@ -336,8 +336,10 @@ public class ServerEntity {
